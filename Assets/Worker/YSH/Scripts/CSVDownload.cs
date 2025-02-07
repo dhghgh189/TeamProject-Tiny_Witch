@@ -20,7 +20,7 @@ public static class CSVDownload
 
         // 다운로드가 완료된 상황
         string skillTableText = skillDataRequest.downloadHandler.text;
-        if (skillTableText == null)
+        if (skillTableText == string.Empty)
         {
             Debug.LogError("Skill Data Download Error!");
             yield break;
@@ -37,7 +37,7 @@ public static class CSVDownload
         yield return monsterDataRequest.SendWebRequest();
 
         string monsterTableText = monsterDataRequest.downloadHandler.text;
-        if (monsterTableText == null)
+        if (monsterTableText == string.Empty)
         {
             Debug.LogError("Monster Data Download Error!");
             yield break;
@@ -54,7 +54,7 @@ public static class CSVDownload
         yield return dropDataRequest.SendWebRequest();
 
         string dropTableText = dropDataRequest.downloadHandler.text;
-        if (dropTableText == null)
+        if (dropTableText == string.Empty)
         {
             Debug.LogError("Drop Data Download Error!");
             yield break;

@@ -78,17 +78,17 @@ public class DataManager : Singleton<DataManager>
         string skillText = skillDataEnumerator.Current as string;
         if (skillText == null)
         {
-            yield return null;
             yield break;
         }
 
+        // UnityWebRequest를 통해 다운로드 한 내용을 전달하여 파싱한다.
         if (CSVParser.GetDataStringWithWeb(skillText, out string[] lines) == false)
         {
             Debug.Log("Skill Data Parse Error!");
-            yield return null;
             yield break;
         }
 
+        // 파싱된 내용을 Data 클래스 인스턴스에 할당하고 딕셔너리에 저장한다.
         for (int line = 1; line < lines.Length; line++)
         {
             SkillData skillData = new SkillData();
@@ -109,14 +109,12 @@ public class DataManager : Singleton<DataManager>
         string monsterText = monsterDataEnumerator.Current as string;
         if (monsterText == null)
         {
-            yield return null;
             yield break;
         }
 
         if (CSVParser.GetDataStringWithWeb(monsterText, out string[] lines) == false)
         {
             Debug.Log("Monster Data Parse Error!");
-            yield return null;
             yield break;
         }
 
@@ -140,14 +138,12 @@ public class DataManager : Singleton<DataManager>
         string dropText = dropDataEnumerator.Current as string;
         if (dropText == null)
         {
-            yield return null;
             yield break;
         }
 
         if (CSVParser.GetDataStringWithWeb(dropText, out string[] lines) == false)
         {
             Debug.Log("Drop Data Parse Error!");
-            yield return null;
             yield break;
         }
 
